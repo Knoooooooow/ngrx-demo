@@ -2,7 +2,7 @@ import { Action } from '@ngrx/store';
 import { PetTag, initialTag } from './../core/pet-tag.model';
 import { SELECT_SHAPE, SELECT_FONT, ADD_TEXT, TOGGLE_CLIP, TOGGLE_GEMS, COMPLETE, RESET } from './pet-tag.actions';
 
-export function petTagReducer(state: PetTag = initialTag, action: Action) {
+export function petTagReducer(state: PetTag = initialTag, action: CustomAction) {
     switch (action.type) {
         case SELECT_SHAPE:
             return Object.assign({}, state, {
@@ -31,6 +31,10 @@ export function petTagReducer(state: PetTag = initialTag, action: Action) {
         case RESET:
             return Object.assign({}, state, initialTag);
         default:
-            return state;
+            return Object.assign({}, state);
     }
+}
+export interface CustomAction extends Action {
+    type: string;
+    payload?: any;
 }
