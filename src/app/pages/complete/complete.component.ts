@@ -13,7 +13,7 @@ export class CompleteComponent implements OnInit, OnDestroy {
     private tagStateSubscription: Subscription;
     petTag: PetTag;
 
-    constructor(private store: Store<PetTag>) {
+    constructor(private store: Store<any>) {
         this.tagState$ = store.select('petTag');
     }
 
